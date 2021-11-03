@@ -2,40 +2,14 @@
   <div class="container" :class="{ 'sign-up-mode': signUpMode }">
     <!--forms-container-->
     <div class="forms-container">
-      <div class="login-signup">
+      <div class="signin-signup">
         <!--login-->
-        <el-form
-          label-width="120px"
-          class="loginForm sign-in-form"
-        >
-          <el-form-item label="Email" prop="email">
-            <el-input
-                placeholder="Enter Email..."
-            >
-            </el-input>
-          </el-form-item>
-          <el-form-item label="Password" prop="password">
-            <el-input
-                type = "password"
-              placeholder="Enter Password..."
-            ></el-input>
-          </el-form-item>
-
-          <el-form-item>
-            <el-button type="primary" class="submit_btn">
-                Login
-            </el-button>
-          </el-form-item>
-          <!-- Forget password-->
-          <div class ="forget">
-              <p>Forget Password?</p>
-          </div>
-        </el-form>
-
+        <LoginForm :loginUser="loginUser" :rules="rules" />
         <!--signup-->
-        
+        <RegisterForm :registerUser="registerUser" :registerRules="registerRules"/>
       </div>
     </div>
+
     <!--Slide Animation-->
     <div class="panels-container">
       <div class="panel left-panel">
@@ -48,6 +22,7 @@
         </div>
         <img src="@/assets/img/log.svg" class="image" alt="" />
       </div>
+
       <div class="panel right-panel">
         <div class="content">
           <h3>Coding makes life better!</h3>
@@ -63,12 +38,27 @@
 </template>
 <script>
 import { ref } from "@vue/reactivity";
+import { loginUser, rules } from "@/utils/loginValidators";
+import { registerUser, registerRules} from "@/utils/registerValidators"
+import LoginForm from "@/components/LoginForm.vue";
+import RegisterForm from "@/components/RegisterForm.vue"
+
 export default {
   name: "LoginRegister",
-  components: {},
+  components: { LoginForm, RegisterForm },
+
   setup() {
     const signUpMode = ref(false);
-    return { signUpMode };
+
+
+
+    return {
+      signUpMode,
+      loginUser,
+      rules,
+      registerUser,
+      registerRules,
+    };
   },
 };
 </script>
@@ -87,7 +77,7 @@ export default {
   top: 0;
   left: 0;
 }
-.login-signup {
+.signin-signup {
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
@@ -413,31 +403,6 @@ form.sign-up-form {
   z-index: 1;
 }
 
-/* register */
-.registerForm {
-  margin-top: 20px;
-  background-color: #fff;
-  padding: 20px 40px 20px 20px;
-  border-radius: 5px;
-  box-shadow: 0px 5px 10px #cccc;
-}
-
-/* Login */
-.loginForm{
-    margin-top:20px;
-    background-color: #fff;
-    padding: 20px 40px 20px 20px;
-    border-radius: 5px;
-    box-shadow: 0px 5px 10px #cccc;
-} 
-.forget{
-    text-align: right;
-    font-size: 12px;
-    color: #333;  
-}
-.forget p{
-    color: #04befe;
-}
 
 .submit_btn {
   width: 100%;
