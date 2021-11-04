@@ -9,12 +9,12 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/login',
     name: 'Login',
-    component: () => import(/* webpackChunkName: "index" */ '../views/LoginRegister.vue')
+    component: () => import(/* webpackChunkName: "login" */ '../views/LoginRegister.vue')
   },
   {
     path: '/:catchAll(.*)',
     name: '404',
-    component: () => import(/* webpackChunkName: "index" */ '../views/404.vue')
+    component: () => import(/* webpackChunkName: "not-found" */ '../views/404.vue')
   }
 ]
 

@@ -8,5 +8,10 @@ export default{
 }
 </script>
 <style scoped>
+.index{  
+  font-weight: 600;
+  line-height: 1;
+  font-size: 1.5rem;
+}
 
 </style>
