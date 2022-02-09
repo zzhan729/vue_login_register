@@ -14,3 +14,6 @@ npm run serve
 Open localhost:8080/login
 
 
+![alt text](login.jepg)
+
+![alt text](signup.jepg)
