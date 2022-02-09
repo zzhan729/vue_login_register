@@ -14,3 +14,7 @@ npm run serve
 Open localhost:8080/login
 
 
+![login Example](login.jpeg)
+
+![signup Example](signup.jpeg)
+
